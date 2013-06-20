@@ -46,7 +46,7 @@ public partial class Pages_Pizza_Add : System.Web.UI.Page
             lblResult.Text = "Upload succesful!";
             ClearTextFields();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             lblResult.Text = "Upload Failed!";
         }
