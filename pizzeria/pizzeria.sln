@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pizzeria", "..\..\pizzeria\pizzeria\", "{8CD37156-6174-438E-BF48-C13B321187BB}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pizzeria", "..\pizzeria\", "{8CD37156-6174-438E-BF48-C13B321187BB}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/pizzeria"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\pizzeria\pizzeria\"
+		Debug.AspNetCompiler.PhysicalPath = "..\pizzeria\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\pizzeria\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/pizzeria"
-		Release.AspNetCompiler.PhysicalPath = "..\..\pizzeria\pizzeria\"
+		Release.AspNetCompiler.PhysicalPath = "..\pizzeria\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\pizzeria\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
