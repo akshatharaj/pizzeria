@@ -108,7 +108,7 @@ public static class ConnectionClass
     public static User LoginUser(string name, string password)
     {
         //Check if user exists
-        string query = string.Format("SELECT COUNT(*) FROM PizzaDB.dbo.users WHERE name = '{0}'", name);
+        string query = string.Format("SELECT COUNT(*) FROM users WHERE name = '{0}'", name);
         command.CommandText = query;
 
         try
