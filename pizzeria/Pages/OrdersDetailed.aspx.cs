@@ -40,10 +40,11 @@ namespace Pages
 
         private void SendEmail(string client, string email, ArrayList orderList)
         {
-            MailAddress to = new MailAddress(email);
-			
+            MailMessage msg = new MailMessage();
+            System.Net.Mail.SmtpClient mail_client = new System.Net.Mail.SmtpClient();
+            MailAddress to = new MailAddress(email);			
 			//TODO: Fill in your own e-mail here!
-            MailAddress from = new MailAddress("your_email@gmail.com");
+            MailAddress from = new MailAddress("akshatharaj31@gmail.com");
             string body = string.Format(
 @"Dear {0},
 We are happy to announce that your order placed on {1} has been completed and is ready for pickup.
@@ -54,21 +55,19 @@ Your ordered products:
 You can come collect your order at your earliest convienence.
 
 Kind regards
-Michiel", client, Request.QueryString["date"], GenerateOrderedItems(orderList));
-
-            MailMessage mail = new MailMessage(from, to);
-            mail.Body = body;
-            mail.Subject = "Your order has been prepared";
-
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-			
-			//TODO: Fill in your own e-mail and password here!
-            smtp.Credentials = new NetworkCredential("your_email@gmail.com", "yourPassword");
-            smtp.EnableSsl = true;
-
-            smtp.Send(mail);
+Akshatha", client, Request.QueryString["date"], GenerateOrderedItems(orderList));
+                msg.Subject = "Pizzeria: Your order has been prepared";
+                msg.Body = body;
+                msg.From = from;
+                msg.To.Add(to);
+                mail_client.Host = "smtp.gmail.com";
+                System.Net.NetworkCredential basicauthenticationinfo = new System.Net.NetworkCredential("akshatharaj31@gmail.com", "Maggeraj31");
+                mail_client.Port = int.Parse("587");
+                mail_client.EnableSsl = true;
+                mail_client.UseDefaultCredentials = false;
+                mail_client.Credentials = basicauthenticationinfo;
+                mail_client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                mail_client.Send(msg);
         }
 
         private string GenerateOrderedItems(ArrayList orderList)
@@ -79,15 +78,19 @@ Michiel", client, Request.QueryString["date"], GenerateOrderedItems(orderList));
             foreach (Order order in orderList)
             {
                 result += string.Format(@"
-- {0} ({1} €)           X {2}                 = {3} €",
+- {0} ({1} $)           X {2}                 = {3} $",
                     order.Product, order.Price, order.Amount, (order.Amount * order.Price));
                 totalAmount += (order.Amount * order.Price);
             }
 
             result += string.Format(@"
 
-Total Amount: {0} €", totalAmount);
+Total Amount: {0} $", totalAmount);
             return result;
         }
-    }
+        protected void sds_DetailedOrder_Selecting(object sender, System.Web.UI.WebControls.SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
+}
 }

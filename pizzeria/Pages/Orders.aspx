@@ -3,7 +3,7 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="2" 
+    <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" 
         Width="900px">
         <asp:TabPanel ID="TabPanel1" runat="server" HeaderText="TabPanel1">
             <HeaderTemplate>Open Orders</HeaderTemplate>

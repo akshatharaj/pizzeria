@@ -11,7 +11,7 @@ public partial class Pages_Orders : System.Web.UI.Page
     {
         CheckIfAdministrator();
 
-        if(IsPostBack)
+        if (IsPostBack)
         {
             Session["date1Open"] = null;
             Session["date2Open"] = null;
@@ -37,15 +37,12 @@ public partial class Pages_Orders : System.Web.UI.Page
 
         //GenerateLineChart("SELECT SUM(amount), DATENAME(month, date) + ' ' + DATENAME(YEAR, date) FROM orders GROUP BY DATENAME(month, date) + ' ' + DATENAME(YEAR, date)",
         //    "Units sold per month", LineChart1);
-        GenerateLineChart("amount","client", "Orders per customer",LineChart1);
-        GenerateLineChart("amount", "DATENAME(month,date) + ' ' + DATENAME(YEAR, date)", "Units sold per month", LineChart2);
-        
+        GenerateLineChart("amount", "client", "Orders per customer", LineChart2);
     }
-
 
     private void CheckIfAdministrator()
     {
-        if ((string) Session["type"] != "administrator")
+        if ((string)Session["type"] != "administrator")
             Response.Redirect("~/Pages/Account/Login.aspx");
     }
 
@@ -112,7 +109,7 @@ public partial class Pages_Orders : System.Web.UI.Page
 
     private void GenerateLineChart(string sumObject, string groupByObject, string title, AjaxControlToolkit.LineChart chart)
     {
-        string query = string.Format("SELECT SUM({0}), {1} FROM orders GROUP BY {1}", sumObject,groupByObject);
+        string query = string.Format("SELECT SUM({0}), {1} FROM orders GROUP BY {1}", sumObject, groupByObject);
         DataTable dt = ConnectionClass.GetChartData(query);
 
         decimal[] x = new decimal[dt.Rows.Count];
@@ -129,6 +126,6 @@ public partial class Pages_Orders : System.Web.UI.Page
         chart.ChartTitle = title;
 
         if (x.Length > 3)
-            chart.ChartWidth = (x.Length*75).ToString();
+            chart.ChartWidth = (x.Length * 75).ToString();
     }
 }
