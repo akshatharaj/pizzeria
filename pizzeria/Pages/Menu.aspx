@@ -9,7 +9,7 @@
     </asp:DropDownList>
     <asp:SqlDataSource ID="sds_type" runat="server" 
         ConnectionString="<%$ ConnectionStrings:pizzaConnection %>" 
-        SelectCommand="SELECT DISTINCT [type] FROM [pizza]">
+        SelectCommand="SELECT DISTINCT [type] FROM [pizza] ORDER BY [type]">
     </asp:SqlDataSource>
 </p>
 <p>

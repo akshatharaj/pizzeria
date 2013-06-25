@@ -43,7 +43,7 @@
                     <ul>
                         <li><a href="~/Pages/Pizza_Overview.aspx" runat="server">Pizza</a></li>
                         <li><a href="~/Pages/Account/Admin.aspx" runat="server">Users</a></li>
-                        <li><a href="~/Pages/Orders.aspx" runat="server">Orders</a></li>
+                        
                     </ul>
                 </li>
             </ul>
